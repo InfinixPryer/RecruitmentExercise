@@ -1,0 +1,2 @@
+C:\Users\USER\Documents\Project Javascript\RecruitmentExerciseApplication\RecruitmentExerciseApplication_FE\obj\Debug\recruitmentexerciseapplication_fe.esproj.SuggestedBindingRedirects.cache
+C:\Users\USER\Documents\Project Javascript\RecruitmentExerciseApplication\RecruitmentExerciseApplication_FE\obj\Debug\recruitmentexerciseapplication_fe.esproj.CoreCompileInputs.cache
