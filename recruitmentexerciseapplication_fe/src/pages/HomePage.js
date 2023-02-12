@@ -8,7 +8,6 @@ const Home = () => {
     let isLoggedIn = false;
     let arrangedTerritories = [];
 
-    console.log(url);
     useEffect(() => {
         if (loading && !isLoggedIn) {
             (async () => {

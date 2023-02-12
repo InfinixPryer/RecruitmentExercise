@@ -22,5 +22,15 @@ namespace RecruitmentExerciseApplication_BE.Controllers
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
             return dataObjects;
         }
+
+        public async Task<AccountModel> CreateAccountAsync([FromForm] AccountCredentials accountCredentials, string url)
+        {
+            httpClient.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = await httpClient.PostAsJsonAsync(url, accountCredentials);
+            var dataObjects = response.Content.ReadFromJsonAsync<AccountModel>();
+            return await dataObjects;
+
+        }
     }
 }
