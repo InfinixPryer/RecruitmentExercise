@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import TerritoryListComponent from '../components/TerritoryListComponent';
+import { useLocation, Routes, Route, Navigate } from 'react-router-dom';
 
 const Home = () => {
     const url = process.env.REACT_APP_TERRITORY_LIST;
@@ -8,8 +9,14 @@ const Home = () => {
     let isLoggedIn = false;
     let arrangedTerritories = [];
 
+    const location = useLocation();
+    console.log(location.state);
+    if (location != null) {
+        isLoggedIn = location.state;
+    }
+
     useEffect(() => {
-        if (loading && !isLoggedIn) {
+        if (loading && isLoggedIn) {
             (async () => {
                 const res = await fetch(url, { headers: { 'Content-Type': 'application/json' } });
                 const result = await res.json();
@@ -20,9 +27,17 @@ const Home = () => {
         }
     }, [territories])
 
-    return (
-        <TerritoryListComponent territories={territories} />
-    )
+    if (!isLoggedIn) {
+        return (
+            <Routes>
+                <Route path="*" element={<Navigate to="/account/login" />} />
+            </Routes>
+        )
+    } else {
+        return (
+            <TerritoryListComponent territories={territories} />
+        )
+    }
 }
 
 const ArrangeTerritories = (territories) => {

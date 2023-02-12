@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
     const url = process.env.REACT_APP_ACCOUNT_LOGIN;
@@ -8,6 +9,7 @@ const LoginPage = () => {
         password: "",
     });
 
+    const navigate = useNavigate()
 
     const HandleUsernameChange = (input) => {
         setUserLogin({ ...userLogin, username: input.target.value })
@@ -62,6 +64,12 @@ const LoginPage = () => {
                     </form>
                 </div>
             </div>
+        )
+    } else {
+        return (
+            <Routes>
+                <Route path="*" element={<Navigate to="/home/index/" state={userLoggedIn} />} />
+            </Routes>
         )
     }
 }
