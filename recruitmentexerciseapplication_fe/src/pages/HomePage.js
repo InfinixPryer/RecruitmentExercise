@@ -10,7 +10,6 @@ const Home = () => {
     let arrangedTerritories = [];
 
     const location = useLocation();
-    console.log(location.state);
     if (location != null) {
         isLoggedIn = location.state;
     }
