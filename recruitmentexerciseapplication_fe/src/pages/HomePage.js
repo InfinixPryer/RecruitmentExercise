@@ -8,9 +8,9 @@ const Home = () => {
     let isLoggedIn = false;
     let arrangedTerritories = [];
 
-
+    console.log(url);
     useEffect(() => {
-        if (loading && isLoggedIn) {
+        if (loading && !isLoggedIn) {
             (async () => {
                 const res = await fetch(url, { headers: { 'Content-Type': 'application/json' } });
                 const result = await res.json();
