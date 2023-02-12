@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import './LoginPage.css'
 
 const LoginPage = () => {
     const url = process.env.REACT_APP_ACCOUNT_LOGIN;
